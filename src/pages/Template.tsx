@@ -1,13 +1,13 @@
-import React from "react";
-import "./Template.css";
+// import React from "react";
+// import "./Template.css";
 
-function Template() {
+// function Template() {
 
-  return (
-    <>
+//   return (
+//     <>
         
-    </>
-  )
-}
+//     </>
+//   )
+// }
 
-export default Template
+// export default Template
