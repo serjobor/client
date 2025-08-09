@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ECF2F9;
+  background: #f4f4f6;
   padding: 20px;
 }
 
@@ -36,7 +36,7 @@
 .auth-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  /* gap: 20px; */
 }
 
 .form-group {
