@@ -16,7 +16,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'ALSHauss', sans-serif;
 
   margin-top: 40px;
   width: 25%;
@@ -62,7 +62,7 @@
   font-weight: 600;
   margin-bottom: 30px;
   text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'ALSHauss', sans-serif;
 }
 
 .admin-form {
@@ -92,7 +92,7 @@
   font-size: 18px;
   font-weight: 600;
   margin: 0 0 8px 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'ALSHauss', sans-serif;
 }
 
 .admin-button {
@@ -104,11 +104,11 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'ALSHauss', sans-serif;
   position: relative;
   overflow: hidden;
 
-  background: #1281e2;
+  background: #1281E2;
   color: #FFF;
 }
 

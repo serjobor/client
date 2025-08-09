@@ -36,7 +36,7 @@
   font-weight: 600;
   margin-bottom: 30px;
   text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'ALSHauss', sans-serif;
 }
 
 .letter-template-form {
@@ -63,7 +63,7 @@
   font-weight: 600;
   margin-bottom: 15px;
   text-align: left;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'ALSHauss', sans-serif;
 }
 
 
@@ -74,7 +74,7 @@
   border: 2px solid #e1e8ed;
   border-radius: 8px;
   font-size: 16px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'ALSHauss', sans-serif;
   line-height: 1.6;
   resize: vertical;
   transition: all 0.3s ease;
@@ -110,7 +110,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'ALSHauss', sans-serif;
   min-width: 120px;
 }
 
@@ -135,7 +135,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'ALSHauss', sans-serif;
   min-width: 120px;
   position: relative;
   overflow: hidden;

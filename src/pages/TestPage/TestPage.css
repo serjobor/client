@@ -36,7 +36,7 @@
     font-weight: 700;
     margin-bottom: 15px;
     text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'ALSHauss', sans-serif;
 }
 
 .test-page-description {
@@ -44,7 +44,7 @@
     font-size: 16px;
     margin-bottom: 40px;
     text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'ALSHauss', sans-serif;
 }
 
 .routes-grid {
@@ -98,7 +98,7 @@
     font-size: 20px;
     font-weight: 600;
     margin: 0 0 8px 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'ALSHauss', sans-serif;
 }
 
 .route-path {
@@ -108,7 +108,7 @@
     border-radius: 20px;
     font-size: 12px;
     font-weight: 600;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'ALSHauss', sans-serif;
     display: inline-block;
 }
 
@@ -117,14 +117,14 @@
     font-size: 14px;
     line-height: 1.5;
     margin-bottom: 15px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'ALSHauss', sans-serif;
 }
 
 .route-component {
     color: #7f8c8d;
     font-size: 13px;
     margin-bottom: 15px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'ALSHauss', sans-serif;
 }
 
 .route-click-hint {
@@ -135,7 +135,7 @@
     padding: 8px;
     background: rgba(52, 152, 219, 0.1);
     border-radius: 6px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'ALSHauss', sans-serif;
 }
 
 /* Responsive design */

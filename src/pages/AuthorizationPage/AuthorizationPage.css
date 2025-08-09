@@ -51,7 +51,7 @@
   border-radius: 8px;
   font-size: 16px;
   transition: all 0.3s ease;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'ALSHauss', sans-serif;
 }
 
 .form-input:focus {
@@ -65,17 +65,19 @@
 }
 
 .auth-button {
-  background-color: rgb(18, 129, 226);
-  color: rgb(255, 255, 255);
+  background: #1281E2;
+  color: #FFF;
   border: none;
   padding: 14px 24px;
   border-radius: 8px;
   font-size: 16px;
   font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -.17px;
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 10px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'ALSHauss', sans-serif;
 }
 
 .auth-button:hover {
