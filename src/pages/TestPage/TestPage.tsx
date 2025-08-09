@@ -30,6 +30,12 @@ function TestPage() {
       name: "Редактирование шаблона письма",
       description: "Страница для редактирования шаблона письма кандидату",
       component: "LetterTemplatePage"
+    },
+    {
+      path: "/error",
+      name: "Ошибка",
+      description: "Возможно, введён некорректный адрес или страница была удалена",
+      component: "ErrorPage"
     }
   ];
 
