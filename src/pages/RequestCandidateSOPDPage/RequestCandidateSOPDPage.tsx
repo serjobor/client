@@ -1,9 +1,9 @@
 // import { useState } from "react";
-import styles from "./RequestCandidateSOPD.module.css";
+import styles from "./RequestCandidateSOPDPage.module.css";
 import LogoSVG from "../../components/LogoSVG";
 import { useNavigate } from "react-router-dom";
 
-function RequestCandidateSOPD() {
+function RequestCandidateSOPDPage() {
   // const [isAgreed, setIsAgreed] = useState<boolean | null>(null);
   const navigate = useNavigate();
 
@@ -77,4 +77,4 @@ function RequestCandidateSOPD() {
   );
 }
 
-export default RequestCandidateSOPD;
+export default RequestCandidateSOPDPage;
