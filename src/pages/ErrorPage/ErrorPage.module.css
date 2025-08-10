@@ -1,18 +1,18 @@
-.error-container {
+.container {
   min-height: 100vh;
   background: #f4f4f6;
   padding: 20px;
   text-align: center;
 }
 
-.error-header {
+.header {
   margin: 0 auto 40px;
   padding: 20px;
   display: flex;
   justify-content: center;
 }
 
-.error-title {
+.title {
   color: #000;
   font-size: 28px;
   font-weight: 700;
@@ -23,21 +23,21 @@
   align-items: center;
 }
 
-.error-header svg {
+.header svg {
   display: block;
 }
 
-.error-header>div:last-child {
+.header>div:last-child {
   display: flex;
   align-items: center;
 }
 
-.error-content {
+.content {
   max-width: 800px;
   margin: 0 auto;
 }
 
-.error-card {
+.card {
   background: #FFF;
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -61,24 +61,24 @@
   }
 }
 
-.error-image-container {
+.imageContainer {
   max-width: 400px;
   width: 100%;
 }
 
-.error-image {
+.image {
   width: 100%;
   height: auto;
   max-width: 100%;
   display: block;
 }
 
-.error-text-container {
+.textContainer {
   text-align: center;
   max-width: 500px;
 }
 
-.error-heading {
+.heading {
   color: #2c3e50;
   font-size: 32px;
   font-weight: 700;
@@ -86,7 +86,7 @@
   font-family: 'ALSHauss', sans-serif;
 }
 
-.error-description {
+.description {
   color: #7f8c8d;
   font-size: 18px;
   line-height: 1.6;
@@ -94,7 +94,7 @@
   font-family: 'ALSHauss', sans-serif;
 }
 
-.back-home-button {
+.backHomeBtn {
   background: #1281E2;
   color: #FFF;
   border: none;
@@ -117,36 +117,36 @@
   gap: 10px;
 }
 
-.back-home-button:hover {
+.backHomeBtn:hover {
   background-color: #085CA6;
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
-  .error-header {
+  .header {
     flex-direction: column;
     gap: 20px;
     text-align: center;
   }
 
-  .error-title {
+  .title {
     font-size: 24px;
   }
 
-  .error-card {
+  .card {
     padding: 40px 20px;
     gap: 30px;
   }
 
-  .error-heading {
+  .heading {
     font-size: 28px;
   }
 
-  .error-description {
+  .description {
     font-size: 16px;
   }
 
-  .back-home-button {
+  .backHomeBtn {
     padding: 14px 24px;
     font-size: 14px;
     min-width: 180px;
@@ -154,32 +154,32 @@
 }
 
 @media (max-width: 480px) {
-  .error-container {
+  .container {
     padding: 10px;
   }
 
-  .error-header {
+  .header {
     padding: 15px;
   }
 
-  .error-title {
+  .title {
     font-size: 20px;
   }
 
-  .error-card {
+  .card {
     padding: 30px 15px;
     gap: 25px;
   }
 
-  .error-heading {
+  .heading {
     font-size: 24px;
   }
 
-  .error-description {
+  .description {
     font-size: 14px;
   }
 
-  .back-home-button {
+  .backHomeBtn {
     padding: 12px 20px;
     font-size: 13px;
     min-width: 160px;

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import "./ErrorPage.css";
+import styles from "./ErrorPage.module.css";
 import LogoSVG from "../../components/LogoSVG";
 import notFoundImage from "../../assets/notFound.svg";
 
@@ -11,30 +11,30 @@ function ErrorPage() {
   };
 
   return (
-    <div className="error-container">
-      <div className="error-header">
+    <div className={styles.container}>
+      <div className={styles.header}>
         <LogoSVG />
       </div>
-      <div className="error-content">
-        <div className="error-card">
-          <div className="error-image-container">
+      <div className={styles.content}>
+        <div className={styles.card}>
+          <div className={styles.imageContainer}>
             <img
               src={notFoundImage}
               alt="Страница не найдена"
-              className="error-image"
+              className={styles.image}
             />
           </div>
 
-          <div className="error-text-container">
-            <h2 className="error-heading">Страница не найдена</h2>
-            <p className="error-description">
+          <div className={styles.textContainer}>
+            <h2 className={styles.heading}>Страница не найдена</h2>
+            <p className={styles.description}>
               Возможно, введён некорректный адрес или страница была удалена.
             </p>
           </div>
 
           <button
             onClick={handleBackToHome}
-            className="back-home-button"
+            className={styles.backHomeBtn}
           >
             Вернуться на главную
           </button>
