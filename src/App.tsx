@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import AuthorizationPage from "./pages/AuthorizationPage"
+import RegistrationPage from "./pages/RegistrationPage"
 import AdminPage from "./pages/AdminPage"
 import SOPDPage from "./pages/SOPDPage"
 import LetterTemplatePage from "./pages/LetterTemplatePage"
@@ -17,6 +18,7 @@ function App() {
         <Route path="*" element={<TestPage/>} />
 
         <Route path="/auth" element={<AuthorizationPage/>} ></Route>
+        <Route path="/registration" element={<RegistrationPage/>} ></Route>
         
         <Route path="/admin" element={<AdminPage/>}></Route>
         <Route path="/admin/sopd" element={<SOPDPage/>}></Route>
