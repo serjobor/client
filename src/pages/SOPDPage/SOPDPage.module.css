@@ -1,16 +1,16 @@
-.sopd-container {
+.container {
   min-height: 100vh;
   background: #f4f4f6;
   padding: 20px;
   text-align: center;
 }
 
-.sopd-content {
+.content {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.sopd-card {
+.card {
   background: #FFF;
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -29,7 +29,7 @@
   }
 }
 
-.sopd-card-title {
+.title {
   color: #000;
   font-size: 24px;
   font-weight: 600;
@@ -38,7 +38,7 @@
   font-family: 'ALSHauss', sans-serif;
 }
 
-.sopd-form {
+.form {
   background: #f8f9fa;
   border-radius: 12px;
   padding: 30px;
@@ -46,16 +46,16 @@
   transition: all 0.3s ease;
 }
 
-.sopd-form:hover {
+.form:hover {
   border-color: #3498db;
   box-shadow: 0 4px 20px rgba(52, 152, 219, 0.1);
 }
 
-.sopd-form-group {
+.group {
   margin-bottom: 30px;
 }
 
-.form-label {
+.label {
   display: block;
   color: #2c3e50;
   font-size: 18px;
@@ -65,7 +65,7 @@
   font-family: 'ALSHauss', sans-serif;
 }
 
-.sopd-textarea {
+.textarea {
   width: 100%;
   min-height: 400px;
   padding: 20px;
@@ -80,25 +80,25 @@
   color: #2c3e50;
 }
 
-.sopd-textarea:focus {
+.textarea:focus {
   outline: none;
   border-color: #3498db;
   box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
 }
 
-.sopd-textarea::placeholder {
+.textarea::placeholder {
   color: #95a5a6;
   font-style: italic;
 }
 
-.sopd-buttons {
+.buttons {
   display: flex;
   gap: 20px;
   justify-content: space-between;
   margin-top: 30px;
 }
 
-.back-button {
+.exit {
   background: #e74c3c;
   color: #FFF;
   border: none;
@@ -112,18 +112,18 @@
   min-width: 120px;
 }
 
-.back-button:hover {
+.exit:hover {
   background-color: #bb4333;
 }
 
-.back-button:disabled {
+.exit:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
 }
 
-.save-button {
+.save {
   background: #27ae60;
   color: #FFF;
   border: none;
@@ -139,24 +139,24 @@
   overflow: hidden;
 }
 
-.save-button:hover {
+.save:hover {
   background-color: #229954;
 }
 
-.save-button:disabled {
+.save:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
 }
 
-.save-button:disabled:hover {
+.save:disabled:hover {
   transform: none;
   box-shadow: none;
 }
 
 /* Loading animation */
-.save-button:disabled::after {
+.save:disabled::after {
   content: '';
   position: absolute;
   top: 50%;
@@ -178,34 +178,34 @@
 /* Responsive design */
 @media (max-width: 768px) {
   
-  .sopd-card {
+  .card {
     padding: 30px 20px;
   }
   
-  .sopd-form {
+  .form {
     padding: 20px;
   }
   
-  .sopd-card-title {
+  .title {
     font-size: 20px;
   }
   
-  .form-label {
+  .label {
     font-size: 16px;
   }
   
-  .sopd-textarea {
+  .textarea {
     font-size: 14px;
     padding: 15px;
   }
   
-  .sopd-buttons {
+  .buttons {
     flex-direction: column;
     align-items: center;
   }
   
-  .back-button,
-  .save-button {
+  .exit,
+  .save {
     width: 100%;
     max-width: 300px;
     padding: 14px 20px;
@@ -214,26 +214,26 @@
 }
 
 @media (max-width: 480px) {
-  .sopd-container {
+  .container {
     padding: 10px;
   }
   
-  .sopd-card {
+  .card {
     padding: 20px 15px;
   }
   
-  .sopd-form {
+  .form {
     padding: 15px;
   }
   
-  .sopd-textarea {
+  .textarea {
     min-height: 300px;
     padding: 12px;
     font-size: 13px;
   }
   
-  .back-button,
-  .save-button {
+  .exit,
+  .save {
     padding: 12px 16px;
     font-size: 13px;
   }

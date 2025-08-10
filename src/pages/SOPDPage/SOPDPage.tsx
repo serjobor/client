@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./SOPDPage.css";
+import styles from "./SOPDPage.module.css";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 
@@ -51,33 +51,33 @@ function SOPDPage() {
   };
 
   return (
-    <div className="sopd-container">
+    <div className={styles.container}>
       <Header roleName="администратора"/>
 
-      <div className="sopd-content">
-        <div className="sopd-card">
-          <h2 className="sopd-card-title">Редактирование согласия на обработку персональных данных (СОПД)</h2>
+      <div className={styles.content}>
+        <div className={styles.card}>
+          <h2 className={styles.title}>Редактирование согласия на обработку персональных данных (СОПД)</h2>
           
-          <form onSubmit={handleSave} className="sopd-form">
-            <div className="sopd-form-group">
-              <label htmlFor="sopd-text" className="form-label">
+          <form onSubmit={handleSave} className={styles.form}>
+            <div className={styles.group}>
+              <label htmlFor="text" className={styles.label}>
                 Текст согласия на обработку персональных данных:
               </label>
               <textarea
-                id="sopd-text"
+                id="text"
                 value={sopdText}
                 onChange={(e) => setSopdText(e.target.value)}
-                className="sopd-textarea"
+                className={styles.textarea}
                 placeholder="Введите текст согласия на обработку персональных данных..."
                 rows={20}
               />
             </div>
             
-            <div className="sopd-buttons">
+            <div className={styles.buttons}>
               <button 
                 type="button" 
                 onClick={handleBackToAdmin}
-                className="back-button"
+                className={styles.exit}
                 disabled={isLoading}
               >
                 Выйти
@@ -85,7 +85,7 @@ function SOPDPage() {
               
               <button 
                 type="submit" 
-                className="save-button"
+                className={styles.save}
                 disabled={isLoading}
               >
                 {isLoading ? "Сохранение..." : "Сохранить"}
