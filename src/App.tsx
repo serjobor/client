@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import AuthorizationPage from "./pages/AuthorizationPage"
 import RegistrationPage from "./pages/RegistrationPage"
+import RequestCandidateSOPD from "./pages/RequestCandidateSOPD"
 import AdminPage from "./pages/AdminPage"
 import SOPDPage from "./pages/SOPDPage"
 import LetterTemplatePage from "./pages/LetterTemplatePage"
@@ -18,7 +19,6 @@ function App() {
         <Route path="*" element={<TestPage/>} />
 
         <Route path="/auth" element={<AuthorizationPage/>} ></Route>
-        <Route path="/registration" element={<RegistrationPage/>} ></Route>
         
         <Route path="/admin" element={<AdminPage/>}></Route>
         <Route path="/admin/sopd" element={<SOPDPage/>}></Route>
@@ -26,6 +26,8 @@ function App() {
 
         <Route path="/error" element={<ErrorPage/>}></Route>
 
+        <Route path="/registration" element={<RegistrationPage/>} ></Route>
+        <Route path="/registration/sopd-request" element={<RequestCandidateSOPD/>} ></Route>
 
       </Routes>
     </BrowserRouter>

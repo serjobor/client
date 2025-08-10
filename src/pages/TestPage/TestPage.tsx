@@ -42,6 +42,12 @@ function TestPage() {
       name: "Регистрация кандидата",
       description: "Страница для регистрации кандидата",
       component: "RegistrationPage"
+    },
+    {
+      path: "/registration/sopd-request",
+      name: "Запрос на подписание СОПД",
+      description: "Страница для подписания СОПД",
+      component: "RequestCandidateSOPD"
     }
   ];
 
