@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import AuthorizationPage from "./pages/AuthorizationPage"
 import RegistrationPage from "./pages/RegistrationPage"
 import RequestCandidateSOPDPage from "./pages/RequestCandidateSOPDPage"
+import ResponseCandidatePage from "./pages/ResponseCandidatePage"
 import AdminPage from "./pages/AdminPage"
 import SOPDPage from "./pages/SOPDPage"
 import LetterTemplatePage from "./pages/LetterTemplatePage"
@@ -28,6 +29,7 @@ function App() {
 
         <Route path="/registration" element={<RegistrationPage/>} ></Route>
         <Route path="/registration/sopd-request" element={<RequestCandidateSOPDPage/>} ></Route>
+        <Route path="/success" element={<ResponseCandidatePage/>} ></Route>
 
       </Routes>
     </BrowserRouter>

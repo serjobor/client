@@ -11,8 +11,8 @@ function RequestCandidateSOPDPage() {
     // setIsAgreed(true);
     // Здесь будет логика обработки согласия
     console.log("Пользователь согласился на обработку персональных данных");
-    // Переходим на страницу регистрации
-    navigate('/');
+    // Переходим на страницу подтверждения
+    navigate('/success');
   };
 
   const handleDecline = () => {
@@ -20,7 +20,7 @@ function RequestCandidateSOPDPage() {
     // Здесь будет логика обработки отказа
     console.log("Пользователь отказался от обработки персональных данных");
     // Можно добавить навигацию на страницу с объяснением последствий
-    navigate('/');
+    navigate('/success');
   };
 
   return (

@@ -48,6 +48,12 @@ function TestPage() {
       name: "Запрос на подписание СОПД",
       description: "Страница для подписания СОПД",
       component: "RequestCandidateSOPDPage"
+    },
+    {
+      path: "/success",
+      name: "Ваш ответ был успешно отправлен",
+      description: "Страница с ответом кандидату о завершении регистрации и подписании СОПД",
+      component: "ResponseCandidatePage"
     }
   ];
 
