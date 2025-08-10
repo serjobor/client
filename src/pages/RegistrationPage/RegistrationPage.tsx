@@ -133,18 +133,18 @@ function RegistrationPage() {
     if (validateForm()) {
       // Здесь будет логика регистрации
       console.log("Данные регистрации:", formData);
-      navigate('/');
+      navigate('/registration/sopd-request');
     }
   };
 
   return (
-    <div className="auth-container">
-      <div className="auth-card">
-        <div className="auth-title">
+    <div className="reg-container">
+      <div className="reg-card">
+        <div className="reg-title">
           <LogoSVG/>
         </div>
         
-        <form onSubmit={handleSubmit} className="auth-form">
+        <form onSubmit={handleSubmit} className="reg-form">
           <div className="form-group">
             <input
               type="text"
@@ -225,7 +225,7 @@ function RegistrationPage() {
             {errors.email && <span className="error-message">{errors.email}</span>}
           </div>
 
-          <button type="submit" className="auth-button">
+          <button type="submit" className="reg-button">
             Продолжить
           </button>
         </form>
