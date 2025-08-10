@@ -1,4 +1,4 @@
-.candidate-container {
+.container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -8,7 +8,7 @@
   padding: 20px;
 }
 
-.candidate-card {
+.card {
   background: #FFF;
   border-radius: 16px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -18,7 +18,7 @@
   animation: slideUp 0.6s ease-out;
 }
 
-.candidate-card {
+.card {
   max-width: 700px;
 }
 
@@ -33,18 +33,18 @@
   }
 }
 
-.candidate-title {
+.title {
   margin-bottom: 30px;
   text-align: center;
 }
 
-.candidate-content {
+.content {
   display: flex;
   flex-direction: column;
   /* gap: 24px; */
 }
 
-.candidate-text {
+.text {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -53,7 +53,7 @@
   font-family: 'ALSHauss', sans-serif;
 }
 
-.candidate-greeting {
+.greeting {
   color: #20222c;
   font-family: 'ALSHauss', sans-serif;
   font-size: 32px;
@@ -64,25 +64,25 @@
   margin-top: 0px;
 }
 
-.candidate-text p {
+.text p {
   font-size: 16px;
   margin: 0;
   text-align: justify;
 }
 
-.candidate-link {
+.link {
   color: #1281E2;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   transition: color 0.3s ease;
 }
 
-.candidate-link:hover {
+.link:hover {
   color: #085CA6;
   text-decoration: underline;
 }
 
-.candidate-button {
+.button {
   background: #1281E2;
   color: #FFF;
   border: none;
@@ -98,121 +98,109 @@
   font-family: 'ALSHauss', sans-serif;
 }
 
-.candidate-button:hover {
+.button:hover {
   color: #FFFFFF;
   background-color: #085CA6;
 }
 
-.candidate-button:active {
+.button:active {
   transform: translateY(0);
 }
 
-.candidate-button:disabled {
+.button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   transform: none;
 }
 
-.candidate-buttons {
+.buttons {
   display: flex;
   gap: 16px;
   justify-content: space-between;
   margin: 20px 0;
 }
 
-.agree-button {
+.agree {
   background: #0ab884;
   color: #FFF;
 }
 
-.agree-button:hover {
+.agree:hover {
   background-color: #098f67;
 }
 
-.decline-button {
+.decline {
   background: #e53e3e;
   color: #FFF;
 }
 
-.decline-button:hover {
+.decline:hover {
   background-color: #c53030;
 }
 
-.candidate-signature {
+.signature {
   /* text-align: center; */
   margin-top: 20px;
   padding-top: 20px;
   border-top: 1px solid #e2e8f0;
 }
 
-.candidate-signature p {
+.signature p {
   font-size: 16px;
   color: #666;
   font-style: italic;
   margin: 0;
 }
 
-.candidate-link {
-  color: #1281E2;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.candidate-link:hover {
-  color: #085CA6;
-  text-decoration: underline;
-}
-
 /* Responsive design */
 @media (max-width: 768px) {
-  .candidate-card {
+  .card {
     max-width: 100%;
     padding: 30px 20px;
   }
   
-  .candidate-buttons {
+  .buttons {
     flex-direction: column;
     align-items: center;
   }
   
-  .candidate-button {
+  .button {
     width: 100%;
     max-width: 200px;
   }
   
-  .candidate-text p {
+  .text p {
     font-size: 15px;
   }
   
-  .candidate-greeting {
+  .greeting {
     font-size: 18px;
   }
 }
 
 @media (max-width: 480px) {
-  .candidate-card {
+  .card {
     padding: 25px 15px;
     margin: 10px;
   }
   
-  .candidate-content {
+  .content {
     gap: 20px;
   }
   
-  .candidate-text {
+  .text {
     gap: 14px;
   }
   
-  .candidate-text p {
+  .text p {
     font-size: 14px;
   }
   
-  .candidate-greeting {
+  .greeting {
     font-size: 16px;
   }
 
-  .candidate-button {
+  .button {
     padding: 12px 20px;
     font-size: 14px;
   }

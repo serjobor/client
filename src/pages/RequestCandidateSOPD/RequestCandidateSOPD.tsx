@@ -1,5 +1,5 @@
 // import { useState } from "react";
-import "./RequestCandidateSOPD.css";
+import styles from "./RequestCandidateSOPD.module.css";
 import LogoSVG from "../../components/LogoSVG";
 import { useNavigate } from "react-router-dom";
 
@@ -24,14 +24,14 @@ function RequestCandidateSOPD() {
   };
 
   return (
-    <div className="candidate-container">
-        <div className="candidate-title">
+    <div className={styles.container}>
+        <div className={styles.title}>
           <LogoSVG/>
         </div>
-      <div className="candidate-card">
-        <div className="candidate-content">
-          <div className="candidate-text">
-            <h1 className="candidate-greeting">Привет!</h1>
+      <div className={styles.card}>
+        <div className={styles.content}>
+          <div className={styles.text}>
+            <h1 className={styles.greeting}>Привет!</h1>
             
             <p>
               ООО «ГК Иннотех» является разработчиком программного обеспечения для собственных нужд и партнеров.
@@ -42,18 +42,18 @@ function RequestCandidateSOPD() {
             </p>
             
             <p>
-              Обработка персональных данных осуществляется на условиях политики конфиденциальности, с которой можно ознакомиться <a href="https://inno.tech/ru/data/privacy_policy/#navigation-id9" className="candidate-link">здесь</a>.
+              Обработка персональных данных осуществляется на условиях политики конфиденциальности, с которой можно ознакомиться <a href="https://inno.tech/ru/data/privacy_policy/#navigation-id9" className={styles.link}>здесь</a>.
             </p>
             
             <p>
-              Для выполнения требований законодательства РФ в области обработки персональных данных, предлагаем Вам дать согласие на обработку персональных данных (<a href="https://air.inno.tech/docs/AIR_personal_data_agreement_20240904.docx" className="candidate-link">см. здесь</a>), нажав соответствующую кнопку ниже.
+              Для выполнения требований законодательства РФ в области обработки персональных данных, предлагаем Вам дать согласие на обработку персональных данных (<a href="https://air.inno.tech/docs/AIR_personal_data_agreement_20240904.docx" className={styles.link}>см. здесь</a>), нажав соответствующую кнопку ниже.
             </p>
           </div>
 
-          <div className="candidate-buttons">
+          <div className={styles.buttons}>
             <button 
               type="button" 
-              className="candidate-button decline-button"
+              className={`${styles.button} ${styles.decline}`}
               onClick={handleDecline}
             >
               Отказаться
@@ -61,14 +61,14 @@ function RequestCandidateSOPD() {
 
             <button 
               type="button" 
-              className="candidate-button agree-button"
+              className={`${styles.button} ${styles.agree}`}
               onClick={handleAgree}
             >
               Согласиться
             </button>
           </div>
 
-          <div className="candidate-signature">
+          <div className={styles.signature}>
             <p>С уважением, команда Холдинга Т1</p>
           </div>
         </div>
