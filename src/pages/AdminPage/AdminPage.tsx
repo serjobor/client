@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./AdminPage.css";
+import styles from "./AdminPage.module.css";
 import Header from "../../components/Header/Header";
 
 function AdminPage() {
@@ -41,33 +41,33 @@ function AdminPage() {
   };
 
   return (
-    <div className="admin-container">
+    <div className={styles.container}>
       <Header roleName="администратора"/>
 
-      <div className="admin-content">
-        <div className="admin-card">
-          <h2 className="card-title">Управление документами</h2>
+      <div className={styles.content}>
+        <div className={styles.card}>
+          <h2 className={styles.title}>Управление документами</h2>
           
-          <form onSubmit={handleSOPDNavigation} className="admin-form">
-            <div className="form-description">
+          <form onSubmit={handleSOPDNavigation} className={styles.form}>
+            <div className={styles.description}>
               <h3>Согласие на обработку персональных данных (СОПД)</h3>
             </div>
             <button 
               type="submit" 
-              className="admin-button"
+              className={styles.button}
               disabled={isLoading}
             >
               {isLoading ? "Загрузка..." : "Редактировать СОПД"}
             </button>
           </form>
 
-          <form onSubmit={handleTemplateNavigation} className="admin-form">
-            <div className="form-description">
+          <form onSubmit={handleTemplateNavigation} className={styles.form}>
+            <div className={styles.description}>
               <h3>Шаблон письма для отправки кандидату</h3>
             </div>
             <button 
               type="submit" 
-              className="admin-button"
+              className={styles.button}
               disabled={isLoading}
             >
               {isLoading ? "Загрузка..." : "Редактировать шаблон"}
@@ -78,7 +78,7 @@ function AdminPage() {
 
       <button 
           onClick={handleLogout} 
-          className="logout-button"
+          className={styles.logoutbtn}
           disabled={isLoading}
         >
           Выйти

@@ -1,4 +1,4 @@
-.admin-container {
+.container {
   min-height: 100vh;
   background: #f4f4f6;
   padding: 20px;
@@ -6,7 +6,7 @@
   text-align: center;
 }
 
-.logout-button {
+.logoutbtn {
   background: #e74c3c;
   color: #FFF;
   border: none;
@@ -19,25 +19,27 @@
   font-family: 'ALSHauss', sans-serif;
 
   margin-top: 40px;
-  width: 25%;
+  width: 50%;
+
+  max-width: 950px;
 }
 
-.logout-button:hover {
+.logoutbtn:hover {
     background-color: #bb4333;
 }
 
-.logout-button:disabled {
+.logoutbtn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   transform: none;
 }
 
-.admin-content {
+.content {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.admin-card {
+.card {
   background: #FFF;
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -56,7 +58,7 @@
   }
 }
 
-.card-title {
+.title {
   color: #000;
   font-size: 24px;
   font-weight: 600;
@@ -65,7 +67,7 @@
   font-family: 'ALSHauss', sans-serif;
 }
 
-.admin-form {
+.form {
   background: #f8f9fa;
   border-radius: 12px;
   padding: 30px;
@@ -74,20 +76,20 @@
   transition: all 0.3s ease;
 }
 
-.admin-form:hover {
+.form:hover {
   border-color: #3498db;
   box-shadow: 0 4px 20px rgba(52, 152, 219, 0.1);
 }
 
-.admin-form:last-child {
+.form:last-child {
   margin-bottom: 0;
 }
 
-.form-description {
+.description {
   margin-bottom: 20px;
 }
 
-.form-description h3 {
+.description h3 {
   color: #2c3e50;
   font-size: 18px;
   font-weight: 600;
@@ -95,7 +97,7 @@
   font-family: 'ALSHauss', sans-serif;
 }
 
-.admin-button {
+.button {
   width: 100%;
   padding: 16px 24px;
   border: none;
@@ -112,23 +114,23 @@
   color: #FFF;
 }
 
-.admin-button:hover {
+.button:hover {
   background-color: #085CA6;
 }
 
-.admin-button:disabled {
+.button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   transform: none;
 }
 
-.admin-button:disabled:hover {
+.button:disabled:hover {
   transform: none;
   box-shadow: none;
 }
 
 /* Loading animation */
-.admin-button:disabled::after {
+.button:disabled::after {
   content: '';
   position: absolute;
   top: 50%;
@@ -150,43 +152,43 @@
 /* Responsive design */
 @media (max-width: 768px) {
   
-  .admin-card {
+  .card {
     padding: 30px 20px;
   }
   
-  .admin-form {
+  .form {
     padding: 20px;
   }
   
-  .card-title {
+  .title {
     font-size: 20px;
   }
   
-  .form-description h3 {
+  .description h3 {
     font-size: 16px;
   }
   
-  .admin-button {
+  .button {
     padding: 14px 20px;
     font-size: 14px;
   }
 }
 
 @media (max-width: 480px) {
-  .admin-container {
+  .container {
     padding: 10px;
   }
   
-  .logout-button {
+  .logoutbtn {
     padding: 10px 20px;
     font-size: 12px;
   }
   
-  .admin-card {
+  .card {
     padding: 20px 15px;
   }
   
-  .admin-form {
+  .form {
     padding: 15px;
   }
 }
