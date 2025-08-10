@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./RegistrationPage.css";
+import styles from "./RegistrationPage.module.css";
 import LogoSVG from "../../components/LogoSVG";
 import { useNavigate } from "react-router-dom";
 
@@ -138,94 +138,94 @@ function RegistrationPage() {
   };
 
   return (
-    <div className="reg-container">
-      <div className="reg-card">
-        <div className="reg-title">
+    <div className={styles.container}>
+      <div className={styles.card}>
+        <div className={styles.title}>
           <LogoSVG/>
         </div>
         
-        <form onSubmit={handleSubmit} className="reg-form">
-          <div className="form-group">
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.group}>
             <input
               type="text"
               name="lastName"
               value={formData.lastName}
               onChange={handleInputChange}
-              className={`form-input ${errors.lastName ? 'error' : ''}`}
+              className={`${styles.input} ${errors.lastName ? `${styles.error}` : ''}`}
               placeholder="Фамилия"
             //   required
             />
-            {errors.lastName && <span className="error-message">{errors.lastName}</span>}
+            {errors.lastName && <span className={styles.errorMessage}>{errors.lastName}</span>}
           </div>
 
-          <div className="form-group">
+          <div className={styles.group}>
             <input
               type="text"
               name="firstName"
               value={formData.firstName}
               onChange={handleInputChange}
-              className={`form-input ${errors.firstName ? 'error' : ''}`}
+              className={`${styles.input} ${errors.firstName ? `${styles.error}` : ''}`}
               placeholder="Имя"
             //   required
             />
-            {errors.firstName && <span className="error-message">{errors.firstName}</span>}
+            {errors.firstName && <span className={styles.errorMessage}>{errors.firstName}</span>}
           </div>
 
-          <div className="form-group">
+          <div className={styles.group}>
             <input
               type="text"
               name="middleName"
               value={formData.middleName}
               onChange={handleInputChange}
-              className={`form-input ${errors.middleName ? 'error' : ''}`}
+              className={`${styles.input} ${errors.middleName ? `${styles.error}` : ''}`}
               placeholder="Отчество"
             //   required
             />
-            {errors.middleName && <span className="error-message">{errors.middleName}</span>}
+            {errors.middleName && <span className={styles.errorMessage}>{errors.middleName}</span>}
           </div>
 
-          <div className="form-group">
+          <div className={styles.group}>
             <input
               type="date"
               name="birthDate"
               value={formData.birthDate}
               onChange={handleInputChange}
-              className={`form-input ${errors.birthDate ? 'error' : ''}`}
+              className={`${styles.input} ${errors.birthDate ? `${styles.error}` : ''}`}
               max={new Date().toISOString().split('T')[0]}
             //   required
             />
-            {errors.birthDate && <span className="error-message">{errors.birthDate}</span>}
+            {errors.birthDate && <span className={styles.errorMessage}>{errors.birthDate}</span>}
           </div>
 
-          <div className="form-group">
+          <div className={styles.group}>
             <input
               type="tel"
               name="phone"
               value={formData.phone}
               onChange={handlePhoneChange}
-              className={`form-input ${errors.phone ? 'error' : ''}`}
+              className={`${styles.input} ${errors.phone ? `${styles.error}` : ''}`}
               placeholder="+7 (___) ___-__-__"
               maxLength={18}
               autoComplete="tel"
             //   required
             />
-            {errors.phone && <span className="error-message">{errors.phone}</span>}
+            {errors.phone && <span className={styles.errorMessage}>{errors.phone}</span>}
           </div>
 
-          <div className="form-group">
+          <div className={styles.group}>
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              className={`form-input ${errors.email ? 'error' : ''}`}
+              className={`${styles.input} ${errors.email ? `${styles.error}` : ''}`}
               placeholder="example@email.com"
             //   required
             />
-            {errors.email && <span className="error-message">{errors.email}</span>}
+            {errors.email && <span className={styles.errorMessage}>{errors.email}</span>}
           </div>
 
-          <button type="submit" className="reg-button">
+          <button type="submit" className={styles.button}>
             Продолжить
           </button>
         </form>
