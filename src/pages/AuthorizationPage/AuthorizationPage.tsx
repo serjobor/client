@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./AuthorizationPage.css";
+import styles from "./AuthorizationPage.module.css";
 import LogoSVG from "../../components/LogoSVG";
 import { useNavigate } from "react-router-dom";
 
@@ -16,37 +16,37 @@ function AuthorizationPage() {
   };
 
   return (
-    <div className="auth-container">
-      <div className="auth-card">
+    <div className={styles.container}>
+      <div className={styles.card}>
         
-        <div className="auth-title">
+        <div className={styles.title}>
           <LogoSVG/>
         </div>
         
-        <form onSubmit={handleSubmit} className="auth-form">
-          <div className="auth-form-group">
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.group}>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="form-input"
+              className={styles.input}
               placeholder="example@email.com"
               required
             />
           </div>
 
-          <div className="form-group">
+          <div className={styles.group}>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="form-input"
+              className={styles.input}
               placeholder="Введите пароль"
               required
             />
           </div>
 
-          <button type="submit" className="auth-button">
+          <button type="submit" className={styles.button}>
             Войти
           </button>
         </form>
