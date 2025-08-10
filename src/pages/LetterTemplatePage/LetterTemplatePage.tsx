@@ -64,7 +64,7 @@ function LetterTemplatePage() {
           <h2 className="letter-template-card-title">Редактирование шаблона письма для отправки кандидатам</h2>
           
           <form onSubmit={handleSave} className="letter-template-form">
-            <div className="form-group">
+            <div className="letter-form-group">
               <label htmlFor="letter-template-text" className="form-label">
                 Текст шаблона письма:
               </label>

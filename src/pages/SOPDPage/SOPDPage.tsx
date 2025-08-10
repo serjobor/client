@@ -59,7 +59,7 @@ function SOPDPage() {
           <h2 className="sopd-card-title">Редактирование согласия на обработку персональных данных (СОПД)</h2>
           
           <form onSubmit={handleSave} className="sopd-form">
-            <div className="form-group">
+            <div className="sopd-form-group">
               <label htmlFor="sopd-text" className="form-label">
                 Текст согласия на обработку персональных данных:
               </label>

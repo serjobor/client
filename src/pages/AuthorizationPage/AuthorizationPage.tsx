@@ -24,7 +24,7 @@ function AuthorizationPage() {
         </div>
         
         <form onSubmit={handleSubmit} className="auth-form">
-          <div className="form-group">
+          <div className="auth-form-group">
             <input
               type="email"
               value={email}

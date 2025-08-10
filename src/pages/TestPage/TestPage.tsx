@@ -36,6 +36,12 @@ function TestPage() {
       name: "Ошибка",
       description: "Возможно, введён некорректный адрес или страница была удалена",
       component: "ErrorPage"
+    },
+    {
+      path: "/registration",
+      name: "Регистрация кандидата",
+      description: "Страница для регистрации кандидата",
+      component: "RegistrationPage"
     }
   ];
 
