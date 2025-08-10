@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+// import { useState } from "react";
 import "./RequestCandidateSOPD.css";
 import LogoSVG from "../../components/LogoSVG";
 import { useNavigate } from "react-router-dom";
 
 function RequestCandidateSOPD() {
-  const [isAgreed, setIsAgreed] = useState<boolean | null>(null);
+  // const [isAgreed, setIsAgreed] = useState<boolean | null>(null);
   const navigate = useNavigate();
 
   const handleAgree = () => {
-    setIsAgreed(true);
+    // setIsAgreed(true);
     // Здесь будет логика обработки согласия
     console.log("Пользователь согласился на обработку персональных данных");
     // Переходим на страницу регистрации
@@ -16,7 +16,7 @@ function RequestCandidateSOPD() {
   };
 
   const handleDecline = () => {
-    setIsAgreed(false);
+    // setIsAgreed(false);
     // Здесь будет логика обработки отказа
     console.log("Пользователь отказался от обработки персональных данных");
     // Можно добавить навигацию на страницу с объяснением последствий
