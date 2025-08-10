@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./SOPDPage.css";
 import { useNavigate } from "react-router-dom";
-import Header from "../../components/Header/Header";
+import Header from "../../components/Header";
 
 function SOPDPage() {
   const navigate = useNavigate();

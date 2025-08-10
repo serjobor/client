@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./LetterTemplatePage.module.css";
-import Header from "../../components/Header/Header";
+import Header from "../../components/Header";
 
 function LetterTemplatePage() {
   const navigate = useNavigate();

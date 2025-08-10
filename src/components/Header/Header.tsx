@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import "./Header.css";
+import styles from "./Header.module.css";
 import LogoSVG from "../LogoSVG";
 
 
@@ -11,8 +11,8 @@ const Header: FC<HeaderProps> = ({roleName}) => {
 
   return (
     <>
-      <div className="header">
-        <h1 className="header-title">Панель {roleName}</h1>
+      <div className={styles.header}>
+        <h1 className={styles.title}>Панель {roleName}</h1>
         <LogoSVG/>
       </div>
     </>
