@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./LetterTemplatePage.css";
+import styles from "./LetterTemplatePage.module.css";
 import Header from "../../components/Header/Header";
 
 function LetterTemplatePage() {
@@ -51,34 +51,34 @@ function LetterTemplatePage() {
   };
 
   return (
-    <div className="letter-template-container">
+    <div className={styles.container}>
       <Header roleName="администратора"/>
 
-      <div className="letter-template-content">
-        <div className="letter-template-card">
-          <h2 className="letter-template-card-title">Редактирование шаблона письма для отправки кандидатам</h2>
+      <div className={styles.content}>
+        <div className={styles.card}>
+          <h2 className={styles.title}>Редактирование шаблона письма для отправки кандидатам</h2>
           
-          <form onSubmit={handleSave} className="letter-template-form">
-            <div className="letter-form-group">
-              <label htmlFor="letter-template-text" className="form-label">
+          <form onSubmit={handleSave} className={styles.form}>
+            <div className={styles.group}>
+              <label htmlFor="text" className={styles.label}>
                 Текст шаблона письма:
               </label>
 
               <textarea
-                id="letter-template-text"
+                id="text"
                 value={letterTemplate}
                 onChange={(e) => setLetterTemplate(e.target.value)}
-                className="letter-template-textarea"
+                className={styles.textarea}
                 placeholder="Введите текст шаблона письма..."
                 rows={25}
               />
             </div>
             
-            <div className="letter-template-buttons">
+            <div className={styles.buttons}>
               <button 
                 type="button" 
                 onClick={handleBackToAdmin}
-                className="back-button"
+                className={styles.exit}
                 disabled={isLoading}
               >
                 Выйти
@@ -86,7 +86,7 @@ function LetterTemplatePage() {
               
               <button 
                 type="submit" 
-                className="save-button"
+                className={styles.save}
                 disabled={isLoading}
               >
                 {isLoading ? "Сохранение..." : "Сохранить"}
