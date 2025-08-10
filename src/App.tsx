@@ -8,6 +8,7 @@ import SOPDPage from "./pages/SOPDPage"
 import LetterTemplatePage from "./pages/LetterTemplatePage"
 import TestPage from "./pages/TestPage"
 import ErrorPage from "./pages/ErrorPage"
+import ManagerPage from "./pages/ManagerPage"
 
 
 function App() {
@@ -30,6 +31,8 @@ function App() {
         <Route path="/registration" element={<RegistrationPage/>} ></Route>
         <Route path="/registration/sopd-request" element={<RequestCandidateSOPDPage/>} ></Route>
         <Route path="/success" element={<ResponseCandidatePage/>} ></Route>
+
+        <Route path="/manager" element={<ManagerPage/>} ></Route>
 
       </Routes>
     </BrowserRouter>

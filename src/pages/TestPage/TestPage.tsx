@@ -13,6 +13,7 @@ function TestPage() {
       description: "Страница для входа в систему",
       component: "AuthorizationPage"
     },
+
     {
       path: "/admin",
       name: "Панель администратора",
@@ -31,12 +32,14 @@ function TestPage() {
       description: "Страница для редактирования шаблона письма кандидату",
       component: "LetterTemplatePage"
     },
+
     {
       path: "/error",
       name: "Ошибка",
       description: "Возможно, введён некорректный адрес или страница была удалена",
       component: "ErrorPage"
     },
+
     {
       path: "/registration",
       name: "Регистрация кандидата",
@@ -49,11 +52,20 @@ function TestPage() {
       description: "Страница для подписания СОПД",
       component: "RequestCandidateSOPDPage"
     },
+
     {
       path: "/success",
       name: "Ваш ответ был успешно отправлен",
       description: "Страница с ответом кандидату о завершении регистрации и подписании СОПД",
       component: "ResponseCandidatePage"
+    },
+
+
+    {
+      path: "/manager",
+      name: "Панель менеджера",
+      description: "Главная страница менеджера с управлением кандидатами",
+      component: "ManagerPage"
     }
   ];
 
