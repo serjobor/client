@@ -7,28 +7,28 @@ function ManagerPage() {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSOPDNavigation = (e: React.FormEvent) => {
+  const handleSentEmailsNavigation = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    // Здесь будет логика перехода на страницу редактирования СОПД
-    console.log("Переход на страницу редактирования СОПД");
+    // Здесь будет логика перехода на страницу просмотра отправленных писем
+    console.log("Переход на страницу просмотра отправленных писем");
     // Имитация загрузки
     setTimeout(() => {
       setIsLoading(false);
-      // логика перехода на страницу редактирования СОПД
+      // логика перехода на страницу просмотра отправленных писем
       navigate('/');
     }, 1000);
   };
 
-  const handleTemplateNavigation = (e: React.FormEvent) => {
+  const handleSendNewEmailsNavigation = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    // Здесь будет логика перехода на страницу редактирования шаблона
-    console.log("Переход на страницу редактирования шаблона письма");
+    // Здесь будет логика перехода на страницу отправления новых писем
+    console.log("Переход на страницу отправления новых писем");
     // Имитация загрузки
     setTimeout(() => {
       setIsLoading(false);
-      // логика перехода на страницу редактирования шаблона письма
+      // логика перехода на страницу отправления новых писем
       navigate('/');
     }, 1000);
   };
@@ -48,7 +48,7 @@ function ManagerPage() {
         <div className={styles.card}>
           <h2 className={styles.title}>Управление кандидатами</h2>
           
-          <form onSubmit={handleSOPDNavigation} className={styles.form}>
+          <form onSubmit={handleSentEmailsNavigation} className={styles.form}>
             <div className={styles.description}>
               <h3>Просмотр отправленных писем</h3>
             </div>
@@ -61,7 +61,7 @@ function ManagerPage() {
             </button>
           </form>
 
-          <form onSubmit={handleTemplateNavigation} className={styles.form}>
+          <form onSubmit={handleSendNewEmailsNavigation} className={styles.form}>
             <div className={styles.description}>
               <h3>Отправить новые письма кандидату/кандидатам</h3>
             </div>
