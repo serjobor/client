@@ -29,7 +29,7 @@ function ManagerPage() {
     setTimeout(() => {
       setIsLoading(false);
       // логика перехода на страницу отправления новых писем
-      navigate('/');
+      navigate('/manager/send-emails');
     }, 1000);
   };
 

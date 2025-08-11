@@ -4,6 +4,7 @@ import RegistrationPage from "./pages/RegistrationPage"
 import RequestCandidateSOPDPage from "./pages/RequestCandidateSOPDPage"
 import ResponseCandidatePage from "./pages/ResponseCandidatePage"
 import SentEmailsPage from "./pages/SentEmailsPage"
+import SendNewEmailsPage from "./pages/SendNewEmailsPage"
 import AdminPage from "./pages/AdminPage"
 import SOPDPage from "./pages/SOPDPage"
 import LetterTemplatePage from "./pages/LetterTemplatePage"
@@ -35,6 +36,7 @@ function App() {
 
         <Route path="/manager" element={<ManagerPage/>} ></Route>
         <Route path="/manager/sent-emails" element={<SentEmailsPage/>} ></Route>
+        <Route path="/manager/send-emails" element={<SendNewEmailsPage/>} ></Route>
 
       </Routes>
     </BrowserRouter>

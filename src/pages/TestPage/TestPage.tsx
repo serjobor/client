@@ -72,6 +72,12 @@ function TestPage() {
       name: "Отправленные письма менеджером",
       description: "Страница менеджера с отпраленными письмами",
       component: "SentEmailsPage"
+    },
+    {
+      path: "/manager/send-emails",
+      name: "Отправка новых писем",
+      description: "Страница менеджера для отправки новых писем",
+      component: "SendNewEmailsPage"
     }
   ];
 
