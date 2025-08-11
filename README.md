@@ -1,75 +1,67 @@
-Client
+# Client
 
-Ссылка на деплой: https://client-lilac-alpha.vercel.app/
+## Ссылка на деплой
+- https://client-lilac-alpha.vercel.app/
 
+## Инструкция по запуску
+- Требования: Node.js 18+ и npm 9+
+- Установка зависимостей:
+  ```bash
+  npm install
+  ```
+- Локальный запуск в dev-режиме:
+  ```bash
+  npm run dev
+  ```
+  После запуска откройте адрес из консоли (обычно `http://localhost:5173`).
 
+## Стек технологий
+- React + TypeScript
+- Vite (сборка)
+- React Router
+- CSS Modules
+- Axios (подключен для будущих API-запросов)
+- MobX / mobx-react-lite (заложено в зависимостях для состояния)
+- ESLint (настройки для TypeScript/React)
 
-<!-- # React + TypeScript + Vite
+## Что реализовано
+- Страницы и навигация:
+  - AuthorizationPage (`/auth`) — форма авторизации
+  - RegistrationPage (`/registration`) — форма регистрации кандидата:
+    - Поля: Фамилия, Имя, Отчество, Дата рождения (только прошедшие даты), Телефон (маска +7), Email
+    - Валидация обязательных полей и форматов
+  - RequestCandidateSOPDPage (`/registration/sopd-request`) — запрос согласия на обработку персональных данных (СОПД) с текстом, кнопками «Согласиться»/«Отказаться»
+  - ResponseCandidatePage (`/success`) — экран успешной отправки/подтверждения с логотипом и иконкой успеха
+  - ManagerPage (`/manager`) — панель менеджера
+  - SentEmailsPage (`/manager/sent-emails`) — раздел просмотра статуса отправленных писем:
+    - Таблица: email кандидата, дата/время отправки, статус (Ожидание/Согласие/Отказ), подробности кандидата (ФИО, ДР, телефон, email)
+  - SendNewEmailsPage (`/manager/send-emails`) — отправление новых писем:
+    - Поле ввода email + кнопка «Добавить», список добавленных адресов с удалением
+    - Кнопки «Отправить» и «Выйти»
+  - ErrorPage (`/error`) — страница ошибки/404 в фирменном стиле
+  - AdminPage, SOPDPage, LetterTemplatePage, TestPage — служебные/шаблонные экраны
+- Общие компоненты:
+  - Header — общий заголовок с логотипом и варьируемым подзаголовком (роль/контекст)
+  - LogoSVG — логотип
+  - SuccessCheckmark — иконка успешной операции
+- UX/валидации:
+  - Маска телефона в регистрации: формат +7 (999) 123-45-67
+  - Дата рождения — не может быть будущей
+  - Подсказки/ошибки под полями
+- Стили:
+  - Единый визуальный стиль (карточки, тени, кнопки, адаптив)
+  - CSS Modules для новых страниц (`*.module.css`)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Основные маршруты
+- `/auth` — авторизация
+- `/registration` — регистрация
+- `/registration/sopd-request` — согласие на обработку ПД
+- `/success` — успешное подтверждение/отправка
+- `/manager` — панель менеджера
+- `/manager/sent-emails` — отправленные письма (таблица)
+- `/manager/send-emails` — отправить новые письма
+- `/admin`, `/admin/sopd`, `/admin/letter` — административные разделы
+- `/error`, `/test` — служебные маршруты
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-``` -->
+## Деплой
+- Конфигурация деплоя на Vercel лежит в `vercel.json`. Проект готов к деплою из ветки `main`.
