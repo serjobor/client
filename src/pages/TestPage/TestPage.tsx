@@ -66,6 +66,12 @@ function TestPage() {
       name: "Панель менеджера",
       description: "Главная страница менеджера с управлением кандидатами",
       component: "ManagerPage"
+    },
+    {
+      path: "/manager/sent-emails",
+      name: "Отправленные письма менеджером",
+      description: "Страница менеджера с отпраленными письмами",
+      component: "SentEmailsPage"
     }
   ];
 

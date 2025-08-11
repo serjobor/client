@@ -16,7 +16,7 @@ function ManagerPage() {
     setTimeout(() => {
       setIsLoading(false);
       // логика перехода на страницу просмотра отправленных писем
-      navigate('/');
+      navigate('/manager/sent-emails');
     }, 1000);
   };
 
