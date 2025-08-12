@@ -27,10 +27,10 @@
 ## Что реализовано
 - Страницы и навигация:
   - AuthorizationPage (`/auth`) — форма авторизации
-  - RegistrationPage (`/registration`) — форма регистрации кандидата:
+  - RegistrationPage (`/registration/:id`) — форма регистрации кандидата:
     - Поля: Фамилия, Имя, Отчество, Дата рождения (только прошедшие даты), Телефон (маска +7), Email
     - Валидация обязательных полей и форматов
-  - RequestCandidateSOPDPage (`/registration/sopd-request`) — запрос согласия на обработку персональных данных (СОПД) с текстом, кнопками «Согласиться»/«Отказаться»
+  - RequestCandidateSOPDPage (`/registration/:id/sopd-request`) — запрос согласия на обработку персональных данных (СОПД) с текстом, кнопками «Согласиться»/«Отказаться»
   - ResponseCandidatePage (`/success`) — экран успешной отправки/подтверждения с логотипом и иконкой успеха
   - ManagerPage (`/manager`) — панель менеджера
   - SentEmailsPage (`/manager/sent-emails`) — раздел просмотра статуса отправленных писем:
@@ -54,8 +54,8 @@
 
 ## Основные маршруты
 - `/auth` — авторизация
-- `/registration` — регистрация
-- `/registration/sopd-request` — согласие на обработку ПД
+- `/registration/:id` — регистрация
+- `/registration/:id/sopd-request` — согласие на обработку ПД
 - `/success` — успешное подтверждение/отправка
 - `/manager` — панель менеджера
 - `/manager/sent-emails` — отправленные письма (таблица)
