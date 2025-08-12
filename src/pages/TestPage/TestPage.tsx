@@ -41,13 +41,13 @@ function TestPage() {
     },
 
     {
-      path: "/registration",
+      path: "/registration/:id",
       name: "Регистрация кандидата",
       description: "Страница для регистрации кандидата",
       component: "RegistrationPage"
     },
     {
-      path: "/registration/sopd-request",
+      path: "/registration/:id/sopd-request",
       name: "Запрос на подписание СОПД",
       description: "Страница для подписания СОПД",
       component: "RequestCandidateSOPDPage"

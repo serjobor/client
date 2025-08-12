@@ -133,7 +133,7 @@ function RegistrationPage() {
     if (validateForm()) {
       // Здесь будет логика регистрации
       console.log("Данные регистрации:", formData);
-      navigate('/registration/sopd-request');
+      navigate('/registration/:id/sopd-request');
     }
   };
 
