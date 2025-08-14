@@ -1,18 +1,37 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./AuthorizationPage.module.css";
 import LogoSVG from "../../components/LogoSVG";
 import { useNavigate } from "react-router-dom";
+import { Context } from "../../main";
+
+const ROLE = {
+  ADMIN: 'ADMIN',
+  MANAGER: 'MANAGER'
+} as const;
 
 function AuthorizationPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
+  const { authStore } = useContext(Context);
+
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // Здесь будет логика авторизации
     console.log("Попытка входа:", { email, password });
-    navigate('/admin');
+
+    await authStore.login(email, password);
+    
+    if (authStore.role === ROLE.ADMIN) {
+      console.log("переход на страницу AdminPage");
+      navigate('/admin');
+    }
+    else if (authStore.role === ROLE.MANAGER) {
+      console.log("переход на страницу ManagerPage");
+      navigate('/manager');
+    }
   };
 
   return (
