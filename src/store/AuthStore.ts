@@ -25,7 +25,8 @@ export default class AuthStore {
       const response = await AuthService.login(email, password);
       // const response = {
       //   data: {
-      //     accessToken: 'test accessToken'
+      //     accessToken: 'test accessToken',
+      //     role: 'ADMIN'
       //   }
       // };
       console.log(response);
@@ -57,7 +58,7 @@ export default class AuthStore {
 
   // async checkAuth() {
   //   try {
-  //     const response = await axios.get<AuthResponse>(`${API_URL}/auth`, {withCredentials: true});
+  //     const response = await axios.put<AuthResponse>(`${API_URL}/auth`, {withCredentials: true});
   //     // const response = {
   //     //   data: {
   //     //     accessToken: 'test accessToken'
