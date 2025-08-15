@@ -70,7 +70,7 @@ function LetterTemplatePage() {
                 className={styles.exit}
                 disabled={isLoading}
               >
-                Выйти
+                Назад
               </button>
               
               <button 

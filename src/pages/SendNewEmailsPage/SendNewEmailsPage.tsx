@@ -83,7 +83,7 @@ function SendNewEmailsPage() {
               onClick={handleLogout}
               disabled={isSending}
             >
-              Выйти
+              Назад
             </button>
 
             <button

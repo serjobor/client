@@ -145,7 +145,7 @@ function SentEmailsPage() {
         </div>
       </div>
 
-      <button className={styles.logoutbtn} onClick={handleLogout}>Выйти</button>
+      <button className={styles.logoutbtn} onClick={handleLogout}>Назад</button>
     </div>
   );
 }

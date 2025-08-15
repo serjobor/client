@@ -32,12 +32,12 @@ function ErrorPage() {
             </p>
           </div>
 
-          <button
+          {/* <button
             onClick={handleBackToHome}
             className={styles.backHomeBtn}
           >
             Вернуться на главную
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
