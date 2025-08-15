@@ -1,43 +1,68 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./AdminPage.module.css";
 import Header from "../../components/Header";
+import { Context } from "../../main";
+import { observer } from "mobx-react-lite";
 
 function AdminPage() {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSOPDNavigation = (e: React.FormEvent) => {
+  const { authStore } = useContext(Context);
+  const { adminStore } = useContext(Context);
+
+  const handleSOPDNavigation =  async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    // Здесь будет логика перехода на страницу редактирования СОПД
-    console.log("Переход на страницу редактирования СОПД");
-    // Имитация загрузки
-    setTimeout(() => {
-      setIsLoading(false);
-      // логика перехода на страницу редактирования СОПД
+    console.log("Попытка перехода на страницу редактирования СОПД");
+
+    try {
+      // Здесь будет логика перехода на страницу редактирования СОПД
+      await adminStore.getSOPDText();
+      console.log("Попытка перехода на страницу редактирования СОПД удалась!");
       navigate('/admin/sopd');
-    }, 1000);
+    } catch (error) {
+      console.log("Попытка перехода на страницу редактирования СОПД НЕ удалась!", error);
+      alert("Попытка перехода на страницу редактирования СОПД НЕ удалась!");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const handleTemplateNavigation = (e: React.FormEvent) => {
+  const handleTemplateNavigation = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    // Здесь будет логика перехода на страницу редактирования шаблона
-    console.log("Переход на страницу редактирования шаблона письма");
-    // Имитация загрузки
-    setTimeout(() => {
-      setIsLoading(false);
-      // логика перехода на страницу редактирования шаблона письма
+    console.log("Попытка перехода на страницу редактирования шаблона письма");
+
+    try {
+      // Здесь будет логика перехода на страницу редактирования шаблона
+      await adminStore.getLetterTemplate();
+      console.log("Попытка перехода на страницу редактирования шаблона письма удалась!");
       navigate('/admin/letter');
-    }, 1000);
+    } catch (error) {
+      console.log("Попытка перехода на страницу редактирования шаблона письма НЕ удалась!", error);
+      alert("Попытка перехода на страницу редактирования шаблона письма НЕ удалась!");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     // Здесь будет логика выхода из аккаунта
-    console.log("Выход из аккаунта администратора");
-    // Очистка токенов, редирект на страницу авторизации и т.д.
-    navigate('/auth');
+    setIsLoading(true);
+    console.log("Попытка выхода из аккаунта администратора");
+    
+    try {
+      await authStore.logout();
+      console.log("Попытка выхода из аккаунта администратора удалась!"); 
+      navigate('/auth');
+    } catch (error) {
+      console.log("Попытка выхода из аккаунта администратора НЕ удалась!", error); 
+      alert("Попытка выхода из аккаунта администратора НЕ удалась!");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -87,4 +112,4 @@ function AdminPage() {
   );
 }
 
-export default AdminPage;
+export default observer(AdminPage);

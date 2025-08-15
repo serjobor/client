@@ -1,36 +1,36 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./LetterTemplatePage.module.css";
 import Header from "../../components/Header";
+import { Context } from "../../main";
+import { observer } from "mobx-react-lite";
 
 function LetterTemplatePage() {
   const navigate = useNavigate();
-  const [letterTemplate, setLetterTemplate] = useState(`Привет!
-
-Перейди пожалуйста по ссылке: {УНИКАЛЬНАЯ ССЫЛКА ДЛЯ КАНДИДАТА}
-
-С уважением, команда Холдинга Т1
-
----
-Письмо отправлено автоматически из системы подбора персонала. Пожалуйста, не отвечайте на него.
-  `);
+  const { adminStore } = useContext(Context);
+  const [templateSubject, setTemplateSubject] = useState(adminStore.templateSubject);
+  const [templateBody, setTemplateBody] = useState(adminStore.templateBody);
   
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSave = (e: React.FormEvent) => {
+  const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     // Здесь будет логика сохранения текста шаблона письма
-    console.log("Сохранение шаблона письма:", letterTemplate);
+    console.log("Попытка сохранения шаблона темы письма:", templateSubject);
+    console.log("Попытка сохранения шаблона тела письма:", templateBody);
     
-    // Имитация сохранения
-    setTimeout(() => {
-      setIsLoading(false);
-      alert("Шаблон письма успешно сохранен!");
-      // После сохранения можно перейти обратно на страницу администратора
+    try {
+      await adminStore.saveLetterTemplate(templateSubject, templateBody);
+      console.log("Попытка сохранения шаблона письма удалась!");
       navigate('/admin');
-    }, 1000);
+    } catch (error) {
+      console.log("Попытка сохранения шаблона письма НЕ удалась!", error);
+      alert("Попытка сохранения шаблона письма НЕ удалась!");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleBackToAdmin = () => {
@@ -50,13 +50,25 @@ function LetterTemplatePage() {
           <form onSubmit={handleSave} className={styles.form}>
             <div className={styles.group}>
               <label htmlFor="text" className={styles.label}>
+                Текст шаблона темы письма:
+              </label>
+
+              <input
+                id="input"
+                value={templateSubject}
+                onChange={(e) => setTemplateSubject(e.target.value)}
+                className={styles.input}
+                placeholder="Введите текст шаблона темы письма..."
+              />
+
+              <label htmlFor="text" className={styles.label}>
                 Текст шаблона письма:
               </label>
 
               <textarea
                 id="text"
-                value={letterTemplate}
-                onChange={(e) => setLetterTemplate(e.target.value)}
+                value={templateBody}
+                onChange={(e) => setTemplateBody(e.target.value)}
                 className={styles.textarea}
                 placeholder="Введите текст шаблона письма..."
                 rows={25}
@@ -88,4 +100,16 @@ function LetterTemplatePage() {
   );
 }
 
-export default LetterTemplatePage;
+export default observer(LetterTemplatePage);
+
+/*
+Привет!
+
+Перейди пожалуйста по ссылке: {УНИКАЛЬНАЯ ССЫЛКА ДЛЯ КАНДИДАТА}
+
+С уважением, команда Холдинга Т1
+
+---
+Письмо отправлено автоматически из системы подбора персонала. Пожалуйста, не отвечайте на него.
+
+*/

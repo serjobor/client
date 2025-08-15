@@ -11,9 +11,20 @@ import LetterTemplatePage from "./pages/LetterTemplatePage"
 import TestPage from "./pages/TestPage"
 import ErrorPage from "./pages/ErrorPage"
 import ManagerPage from "./pages/ManagerPage"
+// import { useContext, useEffect } from "react"
+// import { Context } from "./main"
+import { observer } from "mobx-react-lite"
 
 
 function App() {
+
+  // const { authStore} = useContext(Context);
+
+  // useEffect(() => {
+  //   if(localStorage.getItem('token')) {
+  //     authStore.checkAuth();
+  //   }
+  // }, []);
 
   return (
     <>
@@ -44,4 +55,4 @@ function App() {
   )
 }
 
-export default App
+export default observer(App)
