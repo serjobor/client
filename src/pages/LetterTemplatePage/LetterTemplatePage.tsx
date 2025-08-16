@@ -21,10 +21,12 @@ function LetterTemplatePage() {
     console.log("Попытка сохранения шаблона тела письма:", adminStore.templateBody);
     
     try {
-      await adminStore.saveLetterTemplate(adminStore.templateSubject, adminStore.templateBody);
+      await adminStore.saveLetterTemplate();
       console.log("Попытка сохранения шаблона письма удалась!");
       navigate('/admin');
     } catch (error) {
+      console.log("templateSubject:", adminStore.templateSubject);
+      console.log("templateBody:", adminStore.templateBody);
       console.log("Попытка сохранения шаблона письма НЕ удалась!", error);
       alert("Попытка сохранения шаблона письма НЕ удалась!");
     } finally {

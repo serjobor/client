@@ -46,9 +46,9 @@ export default class AdminStore {
   };
 
   //отправляем запрос на сервер для сохранения текста СОПД
-  async saveSOPDText(sopdText: string) {
+  async saveSOPDText() {
     try {
-      const response = await AdminService.saveSOPDText(sopdText);
+      const response = await AdminService.saveSOPDText(this.sopdText);
       // const response = sopdText;
       console.log(response);
     } catch (e :any) {
@@ -78,12 +78,12 @@ export default class AdminStore {
   };
 
   //отправляем запрос на сервер для сохранения шаблона письма
-  async saveLetterTemplate(templateSubject: string, templateBody: string) {
+  async saveLetterTemplate() {
     try {
-      // const response = await AdminService.saveLetterTemplate(templateSubject, templateBody);
+      // const response = await AdminService.saveLetterTemplate(this.templateSubject, this.templateBody);
       const response = {
-        templateSubject: `${templateSubject}`,
-        templateBody: `${templateBody}`
+        templateSubject: `${this.templateSubject}`,
+        templateBody: `${this.templateBody}`
       };
       console.log(response);
     } catch (e :any) {

@@ -18,7 +18,7 @@ function SOPDPage() {
     // Здесь будет логика сохранения текста СОПД
     console.log("Попытка сохранения текста СОПД:", sopdText);
     try {
-      await adminStore.saveSOPDText(sopdText);
+      await adminStore.saveSOPDText();
       navigate('/admin');
     } catch (error) {
       console.log("Попытка сохранения текста СОПД НЕ удалась!", error);
