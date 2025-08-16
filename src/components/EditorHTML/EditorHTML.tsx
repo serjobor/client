@@ -1,18 +1,19 @@
-import { useState, type FC } from 'react';
+import { type FC } from 'react';
 import styles from "./EditorHTML.module.css";
 
 interface EditorHTMLProps {
   subject: string;
   body: string;
+  onSubjectChange: (value: string) => void;
+  onBodyChange: (value: string) => void;
 }
 
-const EditorHTML: FC<EditorHTMLProps> = (
-  { subject, body }
-) => {
-
-  const [htmlSubject, setHtmlSubject] = useState(subject);
-  const [htmlBody, setHtmlBody] = useState(body);
-
+const EditorHTML: FC<EditorHTMLProps> = ({ 
+  subject,
+  body,
+  onSubjectChange,
+  onBodyChange, 
+}) => {
   return (
     <>
       <div className={styles.group}>
@@ -22,8 +23,8 @@ const EditorHTML: FC<EditorHTMLProps> = (
 
         <input
           id="input"
-          value={htmlSubject}
-          onChange={(e) => setHtmlSubject(e.target.value)}
+          value={subject}
+          onChange={e => onSubjectChange(e.target.value)}
           className={styles.input}
           placeholder="Введите текст шаблона темы письма..."
         />
@@ -34,8 +35,8 @@ const EditorHTML: FC<EditorHTMLProps> = (
         <textarea
           id="html-textarea"
           className={styles.textarea}
-          value={htmlBody}
-          onChange={e => setHtmlBody(e.target.value)}
+          value={body}
+          onChange={e => onBodyChange(e.target.value)}
           placeholder="Введите html текст"
         />
       </div>
@@ -44,7 +45,7 @@ const EditorHTML: FC<EditorHTMLProps> = (
         <div
           className={styles.preview}
           // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{ __html: htmlBody }}
+          dangerouslySetInnerHTML={{ __html: body }}
         />
       </div>
     </>

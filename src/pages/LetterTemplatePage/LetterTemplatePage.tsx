@@ -48,10 +48,12 @@ function LetterTemplatePage() {
           
           <form onSubmit={handleSave} className={styles.form}>
             
-            <EditorHTML
-              subject={adminStore.templateSubject} 
-              body={adminStore.templateBody}
-            />
+          <EditorHTML
+            subject={adminStore.templateSubject}
+            body={adminStore.templateBody}
+            onSubjectChange={value => adminStore.setTemplateSubject(value)}
+            onBodyChange={value => adminStore.setTemplateBody(value)}
+          />
             
             <div className={styles.buttons}>
               <button 

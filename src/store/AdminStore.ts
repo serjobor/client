@@ -15,10 +15,18 @@ export default class AdminStore {
     this.sopdText = sopdText;
   }
 
-  setLetterTemplate(templateSubject: string, templateBody: string) {
+  setTemplateSubject(templateSubject: string) {
     this.templateSubject = templateSubject;
+  }
+
+  setTemplateBody(templateBody: string) {
     this.templateBody = templateBody;
   }
+
+  // setLetterTemplate(templateSubject: string, templateBody: string) {
+  //   this.templateSubject = templateSubject;
+  //   this.templateBody = templateBody;
+  // }
 
   //добавляем в стор текст СОПД
   async getSOPDText() {
@@ -60,7 +68,9 @@ export default class AdminStore {
       //   }
       // };
       console.log(response);
-      this.setLetterTemplate(response.data.templateSubject, response.data.templateBody);
+      this.setTemplateSubject(response.data.templateSubject);
+      this.setTemplateBody(response.data.templateBody);
+      // this.setLetterTemplate(response.data.templateSubject, response.data.templateBody);
     } catch (e :any) {
       console.log(e.response?.data?.message);
       throw e;
@@ -70,11 +80,11 @@ export default class AdminStore {
   //отправляем запрос на сервер для сохранения шаблона письма
   async saveLetterTemplate(templateSubject: string, templateBody: string) {
     try {
-      const response = await AdminService.saveLetterTemplate(templateSubject, templateBody);
-      // const response = {
-      //   templateSubject: `${templateSubject}`,
-      //   templateBody: `${templateBody}`
-      // };
+      // const response = await AdminService.saveLetterTemplate(templateSubject, templateBody);
+      const response = {
+        templateSubject: `${templateSubject}`,
+        templateBody: `${templateBody}`
+      };
       console.log(response);
     } catch (e :any) {
       console.log(e.response?.data?.message);
