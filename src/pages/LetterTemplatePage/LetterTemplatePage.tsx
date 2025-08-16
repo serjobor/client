@@ -4,12 +4,11 @@ import styles from "./LetterTemplatePage.module.css";
 import Header from "../../components/Header";
 import { Context } from "../../main";
 import { observer } from "mobx-react-lite";
+import EditorHTML from "../../components/EditorHTML";
 
 function LetterTemplatePage() {
   const navigate = useNavigate();
   const { adminStore } = useContext(Context);
-  const [templateSubject, setTemplateSubject] = useState(adminStore.templateSubject);
-  const [templateBody, setTemplateBody] = useState(adminStore.templateBody);
   
   const [isLoading, setIsLoading] = useState(false);
 
@@ -18,11 +17,11 @@ function LetterTemplatePage() {
     setIsLoading(true);
 
     // Здесь будет логика сохранения текста шаблона письма
-    console.log("Попытка сохранения шаблона темы письма:", templateSubject);
-    console.log("Попытка сохранения шаблона тела письма:", templateBody);
+    console.log("Попытка сохранения шаблона темы письма:", adminStore.templateSubject);
+    console.log("Попытка сохранения шаблона тела письма:", adminStore.templateBody);
     
     try {
-      await adminStore.saveLetterTemplate(templateSubject, templateBody);
+      await adminStore.saveLetterTemplate(adminStore.templateSubject, adminStore.templateBody);
       console.log("Попытка сохранения шаблона письма удалась!");
       navigate('/admin');
     } catch (error) {
@@ -48,32 +47,11 @@ function LetterTemplatePage() {
           <h2 className={styles.title}>Редактирование шаблона письма для отправки кандидатам</h2>
           
           <form onSubmit={handleSave} className={styles.form}>
-            <div className={styles.group}>
-              <label htmlFor="text" className={styles.label}>
-                Текст шаблона темы письма:
-              </label>
-
-              <input
-                id="input"
-                value={templateSubject}
-                onChange={(e) => setTemplateSubject(e.target.value)}
-                className={styles.input}
-                placeholder="Введите текст шаблона темы письма..."
-              />
-
-              <label htmlFor="text" className={styles.label}>
-                Текст шаблона письма:
-              </label>
-
-              <textarea
-                id="text"
-                value={templateBody}
-                onChange={(e) => setTemplateBody(e.target.value)}
-                className={styles.textarea}
-                placeholder="Введите текст шаблона письма..."
-                rows={25}
-              />
-            </div>
+            
+            <EditorHTML
+              subject={adminStore.templateSubject} 
+              body={adminStore.templateBody}
+            />
             
             <div className={styles.buttons}>
               <button 
