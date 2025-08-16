@@ -8,7 +8,6 @@ import { observer } from "mobx-react-lite";
 function SOPDPage() {
   const navigate = useNavigate();
   const { adminStore } = useContext(Context);
-  const [sopdText, setSopdText] = useState(adminStore.sopdText);
   
   const [isLoading, setIsLoading] = useState(false);
 
@@ -16,12 +15,13 @@ function SOPDPage() {
     e.preventDefault();
     setIsLoading(true);
     // Здесь будет логика сохранения текста СОПД
-    console.log("Попытка сохранения текста СОПД:", sopdText);
+    console.log("Попытка сохранения текста СОПД:", adminStore.sopdText);
     try {
       await adminStore.saveSOPDText();
       navigate('/admin');
     } catch (error) {
       console.log("Попытка сохранения текста СОПД НЕ удалась!", error);
+      console.log("Попытка сохранения текста СОПД НЕ удалась!:", adminStore.sopdText);
       alert("Попытка сохранения текста СОПД НЕ удалась!");
     } finally {
       setIsLoading(false);
@@ -49,8 +49,8 @@ function SOPDPage() {
               </label>
               <textarea
                 id="text"
-                value={sopdText}
-                onChange={(e) => setSopdText(e.target.value)}
+                value={adminStore.sopdText}
+                onChange={(e) => adminStore.setSopdText(e.target.value)}
                 className={styles.textarea}
                 placeholder="Введите текст согласия на обработку персональных данных..."
                 rows={20}

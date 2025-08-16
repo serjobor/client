@@ -49,7 +49,7 @@ export default class AdminStore {
   async saveSOPDText() {
     try {
       const response = await AdminService.saveSOPDText(this.sopdText);
-      // const response = sopdText;
+      // const response = this.sopdText;
       console.log(response);
     } catch (e :any) {
       console.log(e.response?.data?.message);
@@ -80,11 +80,11 @@ export default class AdminStore {
   //отправляем запрос на сервер для сохранения шаблона письма
   async saveLetterTemplate() {
     try {
-      // const response = await AdminService.saveLetterTemplate(this.templateSubject, this.templateBody);
-      const response = {
-        templateSubject: `${this.templateSubject}`,
-        templateBody: `${this.templateBody}`
-      };
+      const response = await AdminService.saveLetterTemplate(this.templateSubject, this.templateBody);
+      // const response = {
+      //   templateSubject: `${this.templateSubject}`,
+      //   templateBody: `${this.templateBody}`
+      // };
       console.log(response);
     } catch (e :any) {
       console.log(e.response?.data?.message);
