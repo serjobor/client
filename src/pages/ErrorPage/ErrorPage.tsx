@@ -1,14 +1,14 @@
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import styles from "./ErrorPage.module.css";
 import LogoSVG from "../../components/LogoSVG";
 import notFoundImage from "../../assets/notFound.svg";
 
 function ErrorPage() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const handleBackToHome = () => {
-    navigate('/');
-  };
+  // const handleBackToHome = () => {
+  //   navigate('/');
+  // };
 
   return (
     <div className={styles.container}>

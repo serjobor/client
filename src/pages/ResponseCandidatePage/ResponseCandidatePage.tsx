@@ -1,6 +1,6 @@
 import styles from "./ResponseCandidatePage.module.css";
 import LogoSVG from "../../components/LogoSVG";
-import SuccessСheckmark from "../../components/SuccessСheckmark";
+import SuccessCheckmark from "../../components/SuccessCheckmark";
 //https://air.inno.tech/app/pdpa/confirmation - референс
 function ResponseCandidatePage() {
   return (
@@ -11,7 +11,7 @@ function ResponseCandidatePage() {
       <div className={styles.content}>
         <div className={styles.card}>
           <div className={styles.imageContainer}>
-            <SuccessСheckmark />
+            <SuccessCheckmark />
           </div>
 
           <div className={styles.textContainer}>

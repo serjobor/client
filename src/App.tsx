@@ -41,8 +41,8 @@ function App() {
 
         <Route path="/error" element={<ErrorPage/>}></Route>
 
-        <Route path="/registration/:id" element={<RegistrationPage/>} ></Route>
-        <Route path="/registration/:id/sopd-request" element={<RequestCandidateSOPDPage/>} ></Route>
+        <Route path="/registration/:token" element={<RegistrationPage/>} ></Route>
+        <Route path="/registration/:token/sopd-request" element={<RequestCandidateSOPDPage/>} ></Route>
         <Route path="/success" element={<ResponseCandidatePage/>} ></Route>
 
         <Route path="/manager" element={<ManagerPage/>} ></Route>

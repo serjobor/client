@@ -2,25 +2,46 @@
 import styles from "./RequestCandidateSOPDPage.module.css";
 import LogoSVG from "../../components/LogoSVG";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { Context } from "../../main";
 
 function RequestCandidateSOPDPage() {
-  // const [isAgreed, setIsAgreed] = useState<boolean | null>(null);
+  // const [isAgreed, setIsAgreed] = useState<boolean>(false);
   const navigate = useNavigate();
 
-  const handleAgree = () => {
+  const { candidateStore } = useContext(Context);
+
+
+  const handleAgree = async () => {
     // setIsAgreed(true);
+    console.log("Попытка отсправить согласие");
     // Здесь будет логика обработки согласия
-    console.log("Пользователь согласился на обработку персональных данных");
     // Переходим на страницу подтверждения
-    navigate('/success');
+    
+    try {
+      console.log("Пользователь согласился на обработку персональных данных");
+      await candidateStore.sendCandidateData();
+      navigate('/success');
+    } catch (error) {
+      console.log("Попытка отсправить согласие НЕ удалась!", error);
+      alert("Попытка отсправить согласие НЕ удалась!");
+    }
   };
 
-  const handleDecline = () => {
+  const handleDecline = async () => {
     // setIsAgreed(false);
-    // Здесь будет логика обработки отказа
-    console.log("Пользователь отказался от обработки персональных данных");
-    // Можно добавить навигацию на страницу с объяснением последствий
-    navigate('/success');
+    console.log("Попытка отсправить согласие");
+    // Здесь будет логика обработки согласия
+    // Переходим на страницу подтверждения
+    
+    try {
+      console.log("Пользователь НЕ согласился на обработку персональных данных");
+      await candidateStore.sendCandidateData();
+      navigate('/success');
+    } catch (error) {
+      console.log("Попытка отсправить согласие НЕ удалась!", error);
+      alert("Попытка отсправить согласие НЕ удалась!");
+    }
   };
 
   return (

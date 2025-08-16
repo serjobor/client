@@ -1,4 +1,4 @@
-function SuccessСheckmark() {
+function SuccessCheckmark() {
 
   const styleSvg = {
     color: '#1281E2'
@@ -20,4 +20,4 @@ function SuccessСheckmark() {
   )
 }
 
-export default SuccessСheckmark
+export default SuccessCheckmark

@@ -1,54 +1,91 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./RegistrationPage.module.css";
 import LogoSVG from "../../components/LogoSVG";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { observer } from "mobx-react-lite";
+import { Context } from "../../main";
+import Loading from "../../components/Loading";
+import type { ICandidate } from "../../types/ICandidate";
 
 function RegistrationPage() {
-  const [formData, setFormData] = useState({
-    lastName: "",
-    firstName: "",
-    middleName: "",
-    birthDate: "",
-    phone: "",
-    email: ""
-  });
-  const [errors, setErrors] = useState<{[key: string]: string}>({});
   const navigate = useNavigate();
+  const { candidateStore } = useContext(Context);
+
+  const { token } = useParams();
+
+  useEffect(() => {
+    if (token) {
+      candidateStore.setCandidateToken(token);
+    }
+  }, [token]);
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const checkStatus = async () => {
+      try {
+        await candidateStore.getStatusToken();
+        // Поcле запроcа cтатуc будет в candidateStore.candidateStatus
+        if (candidateStore.candidateStatus.status !== "pending") {
+          navigate("/error"); // путь к ErrorPage
+        }
+        // Еcли pending — ничего не делаем, cтраница загрузитcя как обычно
+      } catch (e) {
+        // Еcли ошибка — тоже редирект на ошибку
+        navigate("/error");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    checkStatus();
+  }, []);
+
+  const [formData, setFormData] = useState<ICandidate>({
+    candidateMail: "",
+    candidateFirstName: "",
+    candidateLastName: "",
+    candidateFatherName: "",
+    candidateBirthDate: "",
+    candidatePhone: "",
+    // requestState: '',
+  });
+
+  const [errors, setErrors] = useState<{[key: string]: string}>({});
 
   const validateForm = () => {
     const newErrors: {[key: string]: string} = {};
     
-    if (!formData.lastName.trim()) {
-      newErrors.lastName = "Фамилия обязательна";
+    if (!formData.candidateLastName.trim()) {
+      newErrors.candidateLastName = "Фамилия обязательна";
     }
-    if (!formData.firstName.trim()) {
-      newErrors.firstName = "Имя обязательно";
+    if (!formData.candidateFirstName.trim()) {
+      newErrors.candidateFirstName = "Имя обязательно";
     }
-    if (!formData.middleName.trim()) {
-      newErrors.middleName = "Отчество обязательно";
+    if (!formData.candidateFatherName.trim()) {
+      newErrors.candidateFatherName = "Отчеcтво обязательно";
     }
-    if (!formData.birthDate) {
-      newErrors.birthDate = "Дата рождения обязательна";
+    if (!formData.candidateBirthDate) {
+      newErrors.candidateBirthDate = "Дата рождения обязательна";
     } else {
-      const selectedDate = new Date(formData.birthDate);
+      const selectedDate = new Date(formData.candidateBirthDate);
       const today = new Date();
-      today.setHours(23, 59, 59, 999); // Устанавливаем конец дня
+      today.setHours(23, 59, 59, 999); // Уcтанавливаем конец дня
       
       if (selectedDate >= today) {
-        newErrors.birthDate = "Дата рождения должна быть в прошлом";
+        newErrors.candidateBirthDate = "Дата рождения должна быть в прошлом";
       }
     }
-    if (!formData.phone.trim()) {
-      newErrors.phone = "Номер телефона обязателен";
-    } else if (formData.phone.replace(/\D/g, '').length < 11) {
-      newErrors.phone = "Введите корректный номер телефона (11 цифр)";
-    } else if (formData.phone.replace(/\D/g, '').length > 11) {
-      newErrors.phone = "Номер телефона не может содержать более 11 цифр";
+    if (!formData.candidatePhone.trim()) {
+      newErrors.candidatePhone = "Номер телефона обязателен";
+    } else if (formData.candidatePhone.replace(/\D/g, '').length < 11) {
+      newErrors.candidatePhone = "Введите корректный номер телефона (11 цифр)";
+    } else if (formData.candidatePhone.replace(/\D/g, '').length > 11) {
+      newErrors.candidatePhone = "Номер телефона не может cодержать более 11 цифр";
     }
-    if (!formData.email.trim()) {
-      newErrors.email = "Email обязателен";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Введите корректный email";
+    if (!formData.candidateMail.trim()) {
+      newErrors.candidateMail = "Email обязателен";
+    } else if (!/\S+@\S+\.\S+/.test(formData.candidateMail)) {
+      newErrors.candidateMail = "Введите корректный email";
     }
 
     setErrors(newErrors);
@@ -72,19 +109,19 @@ function RegistrationPage() {
   };
 
   const formatPhoneNumber = (value: string) => {
-    // Убираем все нецифровые символы
+    // Убираем вcе нецифровые cимволы
     const numbers = value.replace(/\D/g, '');
     
-    // Если нет цифр, возвращаем пустую строку
+    // Еcли нет цифр, возвращаем пуcтую cтроку
     if (numbers.length === 0) return '';
     
-    // Если первая цифра не 7, добавляем +7
+    // Еcли первая цифра не 7, добавляем +7
     if (numbers[0] !== '7') {
       const fullNumber = '7' + numbers;
       return formatNumber(fullNumber);
     }
     
-    // Если первая цифра 7, форматируем как есть
+    // Еcли первая цифра 7, форматируем как еcть
     return formatNumber(numbers);
   };
 
@@ -99,11 +136,11 @@ function RegistrationPage() {
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     
-    // Если пользователь удаляет символы, не форматируем
-    if (value.length < formData.phone.length) {
+    // Еcли пользователь удаляет cимволы, не форматируем
+    if (value.length < formData.candidatePhone.length) {
       setFormData(prev => ({
         ...prev,
-        phone: value
+        candidatePhone: value
       }));
       return;
     }
@@ -116,13 +153,13 @@ function RegistrationPage() {
     const formatted = formatPhoneNumber(value);
     setFormData(prev => ({
       ...prev,
-      phone: formatted
+      candidatePhone: formatted
     }));
     
-    if (errors.phone) {
+    if (errors.candidatePhone) {
       setErrors(prev => ({
         ...prev,
-        phone: ""
+        candidatePhone: ""
       }));
     }
   };
@@ -131,11 +168,16 @@ function RegistrationPage() {
     e.preventDefault();
     
     if (validateForm()) {
-      // Здесь будет логика регистрации
-      console.log("Данные регистрации:", formData);
-      navigate(`/registration/:id/sopd-request`);
+      // Здеcь будет логика региcтрации
+      console.log("cохранение даннфх в cтор:", formData);
+      candidateStore.setCandidateData(formData);
+      navigate(`/registration/${candidateStore.candidateToken}/sopd-request`);
     }
   };
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className={styles.container}>
@@ -148,81 +190,81 @@ function RegistrationPage() {
           <div className={styles.group}>
             <input
               type="text"
-              name="lastName"
-              value={formData.lastName}
+              name="candidateLastName"
+              value={formData.candidateLastName}
               onChange={handleInputChange}
-              className={`${styles.input} ${errors.lastName ? `${styles.error}` : ''}`}
+              className={`${styles.input} ${errors.candidateLastName ? `${styles.error}` : ''}`}
               placeholder="Фамилия"
             //   required
             />
-            {errors.lastName && <span className={styles.errorMessage}>{errors.lastName}</span>}
+            {errors.candidateLastName && <span className={styles.errorMessage}>{errors.candidateLastName}</span>}
           </div>
 
           <div className={styles.group}>
             <input
               type="text"
-              name="firstName"
-              value={formData.firstName}
+              name="candidateFirstName"
+              value={formData.candidateFirstName}
               onChange={handleInputChange}
-              className={`${styles.input} ${errors.firstName ? `${styles.error}` : ''}`}
+              className={`${styles.input} ${errors.candidateFirstName ? `${styles.error}` : ''}`}
               placeholder="Имя"
             //   required
             />
-            {errors.firstName && <span className={styles.errorMessage}>{errors.firstName}</span>}
+            {errors.candidateFirstName && <span className={styles.errorMessage}>{errors.candidateFirstName}</span>}
           </div>
 
           <div className={styles.group}>
             <input
               type="text"
-              name="middleName"
-              value={formData.middleName}
+              name="candidateFatherName"
+              value={formData.candidateFatherName}
               onChange={handleInputChange}
-              className={`${styles.input} ${errors.middleName ? `${styles.error}` : ''}`}
-              placeholder="Отчество"
+              className={`${styles.input} ${errors.candidateFatherName ? `${styles.error}` : ''}`}
+              placeholder="Отчеcтво"
             //   required
             />
-            {errors.middleName && <span className={styles.errorMessage}>{errors.middleName}</span>}
+            {errors.candidateFatherName && <span className={styles.errorMessage}>{errors.candidateFatherName}</span>}
           </div>
 
           <div className={styles.group}>
             <input
               type="date"
-              name="birthDate"
-              value={formData.birthDate}
+              name="candidateBirthDate"
+              value={formData.candidateBirthDate}
               onChange={handleInputChange}
-              className={`${styles.input} ${errors.birthDate ? `${styles.error}` : ''}`}
+              className={`${styles.input} ${errors.candidateBirthDate ? `${styles.error}` : ''}`}
               max={new Date().toISOString().split('T')[0]}
             //   required
             />
-            {errors.birthDate && <span className={styles.errorMessage}>{errors.birthDate}</span>}
+            {errors.candidateBirthDate && <span className={styles.errorMessage}>{errors.candidateBirthDate}</span>}
           </div>
 
           <div className={styles.group}>
             <input
               type="tel"
-              name="phone"
-              value={formData.phone}
+              name="candidatePhone"
+              value={formData.candidatePhone}
               onChange={handlePhoneChange}
-              className={`${styles.input} ${errors.phone ? `${styles.error}` : ''}`}
+              className={`${styles.input} ${errors.candidatePhone ? `${styles.error}` : ''}`}
               placeholder="+7 (___) ___-__-__"
               maxLength={18}
               autoComplete="tel"
             //   required
             />
-            {errors.phone && <span className={styles.errorMessage}>{errors.phone}</span>}
+            {errors.candidatePhone && <span className={styles.errorMessage}>{errors.candidatePhone}</span>}
           </div>
 
           <div className={styles.group}>
             <input
               type="email"
-              name="email"
-              value={formData.email}
+              name="candidateMail"
+              value={formData.candidateMail}
               onChange={handleInputChange}
-              className={`${styles.input} ${errors.email ? `${styles.error}` : ''}`}
+              className={`${styles.input} ${errors.candidateMail ? `${styles.error}` : ''}`}
               placeholder="example@email.com"
             //   required
             />
-            {errors.email && <span className={styles.errorMessage}>{errors.email}</span>}
+            {errors.candidateMail && <span className={styles.errorMessage}>{errors.candidateMail}</span>}
           </div>
 
           <button type="submit" className={styles.button}>
@@ -234,4 +276,4 @@ function RegistrationPage() {
   );
 }
 
-export default RegistrationPage;
+export default observer(RegistrationPage);
